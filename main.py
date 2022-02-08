@@ -4,10 +4,6 @@ print(logo)
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
 #testing the functionality of the index method
 # index = alphabet.index('d')
 # print(index)
@@ -38,4 +34,14 @@ def caesar(text, shift,direction):
     text_list = ''.join(text_list)      
     print(f"Here's the {direction}d result: {text_list}")
 
-caesar(text=text, shift=shift, direction=direction)
+go_again = "yes"
+while go_again == 'yes':
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
+
+  
+    caesar(text=text, shift=shift, direction=direction)
+    
+    go_again = input("Would you like to go again? Enter (yes or no): ").lower()
