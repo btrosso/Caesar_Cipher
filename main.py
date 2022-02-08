@@ -23,4 +23,22 @@ def encrypt(text, shift):
     text_list = ''.join(text_list)      
     print(text_list)
 
-encrypt(text=text, shift=shift)
+def decrypt(text, shift):
+    text_list = list(text)
+    i = 0
+    for char in text_list:
+        index = alphabet.index(char)
+        shifted_index = index - shift
+        if shifted_index < 0:
+            index = shifted_index + 26
+            text_list[i] = alphabet[index]
+        else:
+            text_list[i] = alphabet[shifted_index]
+        i += 1
+    text_list = ''.join(text_list)      
+    print(text_list)
+
+if direction == 'encode':
+    encrypt(text=text, shift=shift)
+else:
+    decrypt(text=text, shift=shift)
